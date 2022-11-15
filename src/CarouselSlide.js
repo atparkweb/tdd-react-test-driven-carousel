@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Img = styled.img`
+const DefaultImg = styled.img`
   object-fit: cover;
   width: 100%;
   height: ${props =>
@@ -12,6 +12,7 @@ const Img = styled.img`
 `;
 
 const CarouselSlide = ({
+  Img,
   attribution,
   description,
   imgHeight,
@@ -29,11 +30,13 @@ const CarouselSlide = ({
 CarouselSlide.propTypes = {
   attribution: PropTypes.node,
   description: PropTypes.node.isRequired,
-  imgUrl: PropTypes.string.isRequired,
+  Img: PropTypes.elementType,
   imgHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  imgUrl: PropTypes.string.isRequired,
 };
 
 CarouselSlide.defaultProps = {
+  Img: DefaultImg,
   imgHeight: 500,
 };
 
